@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Registration Form</title>
+</head>
+<body>
+        <form class="container" id="registrationForm">
+        
+        <div class="container">
+
+          <h1 class="form">REGISTRATION FORM</h1> <img src="./undraw_forms_re_pkrt.jpg" class="registration-image">
+          
+          <p> <u> <H2> Please fill in this form to create an account.</H2> </u></p>
+          <hr>
+          <label for="username"><b>Name</b></label>
+          <input type="text" placeholder="Enter Username" name="name" id="name" required>
+   
+          <label for="email"><b>Email</b></label>
+          <input type="text" placeholder="Enter Email" name="email" id="email" required>
+      
+          <label for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+      
+          <label for="psw-repeat"><b>Repeat Password</b></label>
+          <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
+                                     
+            <label for="phone"><b>Phone No.</b></label> <br>
+            <input type="tel" placeholder="Enter Phone no." name="phone" id="phone" required>
+   
+          <label for="con"><b>Country </b></label>
+          <select id="country" name="country">
+                <option>Select Country</option>
+                <option value="India">India</option>
+                <option value="uk">UK</option>
+                <option value="usa">USA</option>
+                <option value="canada">Canada</option>
+          </select>
+          <!--<input type="text" placeholder="Enter Country" name="con" id="con" required>-->
+          <hr>
+      
+          <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+          <button type="submit" class="btn">Register</button>
+        </div>
+      
+        <div class="container signin">
+          <p>Already have an account? <a href="#">Sign in</a>.</p>
+        </div>
+      </form>
+      <script>
+        function validateAndSubmit() {
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("psw").value;
+    var confirmPassword = document.getElementById("psw-repeat").value;
+    var phone = document.getElementById("phone").value;
+    var country = document.getElementById("country").value;
+
+    // Basic form validation
+    if (name === "" || email === "" || password === "" || confirmPassword === "" || phone === "" || country === "Select Country") {
+        alert("Please fill in all fields.");
+        } else if (password !== confirmPassword) {
+        alert("Passwords do not match.");
+     } else {
+        // Form submitted successfully
+        showSubmissionMessage(name, email, phone, country);
+        }
+    }
+
+    function showSubmissionMessage(name, email, phone, country) {
+    // Hide the form
+    document.getElementById("registrationForm").style.display = "none";
+
+    // Display a submission message
+    var submissionMessage = document.createElement("div");
+    submissionMessage.innerHTML = "<p>Form submitted successfully!</p>" +
+        "<p><strong>Name:</strong> " + name + "</p>" +
+        "<p><strong>Email:</strong> " + email + "</p>" +
+        "<p><strong>Phone:</strong> " + phone + "</p>" +
+        "<p><strong>Country:</strong> " + country + "</p>";
+    submissionMessage.style.color = "green";
+    submissionMessage.style.textAlign = "center";
+    submissionMessage.style.fontSize = "20px";
+
+    document.body.appendChild(submissionMessage);
+}
+      </script>
+</body>
+</html>
+
+
+
